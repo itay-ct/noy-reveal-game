@@ -106,15 +106,6 @@ function parseCsvRows(text) {
   return rows;
 }
 
-function normalizeRightAnswer(value) {
-  const normalized = String(value || "").trim().toLowerCase();
-  if (rightAnswerKeys.includes(normalized)) return normalized;
-  if (normalized === "א") return "answer a";
-  if (normalized === "ב") return "answer b";
-  if (normalized === "ג") return "answer c";
-  return normalized;
-}
-
 function applyQuestionOverrides(csvText) {
   const rows = parseCsvRows(csvText);
   const headers = rows.shift()?.map((header) => header.trim().toLowerCase()) || [];
@@ -136,7 +127,7 @@ function applyQuestionOverrides(csvText) {
       record["answer b"]?.trim() || card.answers[1] || "",
       record["answer c"]?.trim() || card.answers[2] || "",
     ];
-    card.rightAnswer = normalizeRightAnswer(record["right answer"]) || card.rightAnswer;
+    card.rightAnswer = "answer a";
     answerOrderByCard.delete(card.id);
   });
 }
@@ -547,8 +538,10 @@ function startFinale() {
   burstConfetti(260, ["#f7c948", "#40d3e8", "#ff6b6b", "#ffffff", "#58d68d"]);
 }
 
-function resetGame() {
+async function resetGame() {
   if (!window.confirm("לאפס את כל הכרטיסים שנחשפו?")) return;
+  await loadQuestionOverrides();
+  answerOrderByCard.clear();
   revealed = new Set();
   selectedIndex = null;
   highlightedIndex = null;

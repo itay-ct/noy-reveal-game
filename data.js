@@ -189,7 +189,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 13,
@@ -205,7 +205,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 14,
@@ -221,7 +221,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 15,
@@ -237,7 +237,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 16,
@@ -253,7 +253,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 17,
@@ -269,7 +269,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 18,
@@ -285,7 +285,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 19,
@@ -301,7 +301,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 20,
@@ -317,7 +317,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 21,
@@ -333,7 +333,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 22,
@@ -349,7 +349,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 23,
@@ -365,7 +365,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 24,
@@ -381,7 +381,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 25,
@@ -397,7 +397,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 26,
@@ -413,7 +413,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 27,
@@ -429,7 +429,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 28,
@@ -445,7 +445,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 29,
@@ -461,7 +461,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 30,
@@ -477,7 +477,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 31,
@@ -493,7 +493,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 32,
@@ -509,7 +509,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 33,
@@ -525,7 +525,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 34,
@@ -541,7 +541,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 35,
@@ -557,7 +557,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 36,
@@ -573,7 +573,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 37,
@@ -589,7 +589,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 38,
@@ -605,7 +605,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 39,
@@ -621,7 +621,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 40,
@@ -637,7 +637,7 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   },
   {
     "id": 41,
@@ -653,6 +653,6 @@ window.NOY_GAME_CARDS = [
       "תשובה ב",
       "תשובה ג"
     ],
-    "rightAnswer": ""
+    "rightAnswer": "answer a"
   }
 ];
