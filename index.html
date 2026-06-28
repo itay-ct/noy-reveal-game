@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>נוי בת מצווה | משחק חשיפת ציורים</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="confetti" aria-hidden="true"></canvas>
+    <main class="app" id="app">
+      <header class="topbar">
+        <div>
+          <h1>נוי בת מצווה</h1>
+        </div>
+        <div class="progress-wrap" aria-live="polite">
+          <span id="progressText">0 / 41 נחשפו</span>
+          <div class="progress-track">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+        </div>
+      </header>
+
+      <section class="workspace">
+        <section class="gallery-shell" aria-label="גלריית הכרטיסים">
+          <div id="gallery" class="gallery"></div>
+          <section class="stage-overlay" id="stageOverlay" aria-live="polite"></section>
+        </section>
+      </section>
+
+      <nav class="operator-bar" aria-label="כפתורי הפעלה">
+        <button id="nextBtn" class="primary">חשיפת הכרטיס הבא</button>
+        <button id="answerBtn">הצגת התשובה</button>
+        <button id="drawingBtn">חשיפת הציור</button>
+        <button id="finaleBtn">פינאלה</button>
+        <button id="fullscreenBtn" class="quiet">מסך מלא</button>
+        <button id="resetBtn" class="quiet danger">איפוס</button>
+      </nav>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
