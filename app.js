@@ -5,6 +5,7 @@ const rightAnswerKeys = ["answer a", "answer b", "answer c"];
 const OPENING_GUEST_SEQUENCE = ["נוי", "אורטל", "איתי"];
 
 const gallery = document.getElementById("gallery");
+const galleryShell = document.querySelector(".gallery-shell");
 const stageOverlay = document.getElementById("stageOverlay");
 const progressText = document.getElementById("progressText");
 const progressFill = document.getElementById("progressFill");
@@ -341,11 +342,9 @@ function renderAnswerResult(card) {
   const right = correctIndex(card);
   const rightLetter = right >= 0 ? answerLetters[right] : "";
   const rightText = right >= 0 ? displayAnswersForCard(card)[right]?.text : "עוד לא הוגדרה תשובה";
-  const wasRight = pickedAnswerIndex === right;
   return `
     <div class="answer-result">
       <span>התשובה הנכונה: ${rightLetter} — ${escapeHtml(rightText)}</span>
-      <span>${wasRight ? "נכון! החולצה נפתחה." : "לא בדיוק... אבל נוי מאשרת תשובות דרמטיות. החולצה נפתחה."}</span>
     </div>
   `;
 }
@@ -586,6 +585,12 @@ function progressWithSpace() {
   }
 }
 
+function progressFromBackdropClick(event) {
+  if (event.target.closest(".stage-overlay, .operator-bar, .reveal-showcase")) return;
+  if (selectedIndex === null && event.target.closest(".memory-card")) return;
+  progressWithSpace();
+}
+
 function toggleOperatorControls() {
   controlsExpanded = !controlsExpanded;
   renderButtons();
@@ -661,6 +666,7 @@ answerBtn.addEventListener("click", showCorrectAnswer);
 drawingBtn.addEventListener("click", revealDrawing);
 finaleBtn.addEventListener("click", startFinale);
 resetBtn.addEventListener("click", resetGame);
+galleryShell.addEventListener("click", progressFromBackdropClick);
 fullscreenBtn.addEventListener("click", () => {
   if (document.fullscreenElement) {
     document.exitFullscreen();
