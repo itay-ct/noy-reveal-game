@@ -23,11 +23,11 @@ window.NOY_GAME_CARDS = [
     "width": 1190,
     "height": 1700,
     "orientation": "portrait",
-    "question": "מה יש לנוי?",
+    "question": "באיזה מקצוע נוי קיבלה ציון הכי גבוה בתעודה?",
     "answers": [
-      "כתם לידה",
-      "משקפיים סגולים",
-      "אוסף כובעים סודי"
+      "מתמטיקה",
+      "מדעים",
+      "עברית"
     ],
     "rightAnswer": "answer a"
   },
@@ -91,7 +91,7 @@ window.NOY_GAME_CARDS = [
     "answers": [
       "יחדיו",
       "אלון",
-      "בית הספר למילקי"
+      "שקד"
     ],
     "rightAnswer": "answer a"
   },
@@ -107,7 +107,7 @@ window.NOY_GAME_CARDS = [
     "answers": [
       "צופים",
       "כדורעף",
-      "חוג מנוחה מתקדמת"
+      "המחנות העולים"
     ],
     "rightAnswer": "answer a"
   },
@@ -122,7 +122,7 @@ window.NOY_GAME_CARDS = [
     "question": "איפה נוי אהבה לישון כשהייתה קטנה?",
     "answers": [
       "על הרצפה",
-      "בתוך ארון התחפושות",
+      "במיטה של יהב",
       "על ערימת חולצות"
     ],
     "rightAnswer": "answer a"
@@ -135,11 +135,11 @@ window.NOY_GAME_CARDS = [
     "width": 1122,
     "height": 1402,
     "orientation": "portrait",
-    "question": "שאלה איתי",
+    "question": "מה המשקה האהוב עליה?",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "לימונדה",
+      "קולה זירו",
+      "בירה שחורה"
     ],
     "rightAnswer": "answer a"
   },
@@ -167,11 +167,11 @@ window.NOY_GAME_CARDS = [
     "width": 1700,
     "height": 1192,
     "orientation": "landscape",
-    "question": "מה נוי הכי בטוח תאשר?",
+    "question": "איזה חלק נוי הכי אוהבת באבטיח",
     "answers": [
-      "תשובה עם ביטחון",
-      "תירוץ חלש",
-      "לא לענות בכלל"
+      "את הלבן",
+      "את האדום",
+      "את הירוק"
     ],
     "rightAnswer": "answer a"
   },
@@ -183,11 +183,11 @@ window.NOY_GAME_CARDS = [
     "width": 1700,
     "height": 1223,
     "orientation": "landscape",
-    "question": "שאלה 11",
+    "question": "האתר שנוי הכי אוהבת להזמין ממנו",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "שיין",
+      "עליאקספרס",
+      "קיי אס פי"
     ],
     "rightAnswer": "answer a"
   },
@@ -199,11 +199,11 @@ window.NOY_GAME_CARDS = [
     "width": 1184,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 12",
+    "question": "לאיזו חיה נוי אלרגית",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "חתול",
+      "חילזון",
+      "פרפר"
     ],
     "rightAnswer": "answer a"
   },
@@ -215,11 +215,11 @@ window.NOY_GAME_CARDS = [
     "width": 1185,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 13",
+    "question": "מתי יוצא לנוי הרוע?",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "בלילה כשהיא עייפה",
+      "בבוקר לפני ששוטפת פנים",
+      "כשחוזרת מבית ספר"
     ],
     "rightAnswer": "answer a"
   },
@@ -231,11 +231,11 @@ window.NOY_GAME_CARDS = [
     "width": 1700,
     "height": 1237,
     "orientation": "landscape",
-    "question": "שאלה 14",
+    "question": "למה נוי התחפשה בפורים השנה?",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "מכשפת ממתקים",
+      "מלכת אנגליה",
+      "רומי מציידות השדים של הקייפופ"
     ],
     "rightAnswer": "answer a"
   },
@@ -247,11 +247,11 @@ window.NOY_GAME_CARDS = [
     "width": 1700,
     "height": 1201,
     "orientation": "landscape",
-    "question": "שאלה 15",
+    "question": "המשחק שנוי הכי טובה בו במשפחה בפער",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "תרנגולת בכביש",
+      "פוקימון גו",
+      "חדר וחצי"
     ],
     "rightAnswer": "answer a"
   },
@@ -263,11 +263,11 @@ window.NOY_GAME_CARDS = [
     "width": 1700,
     "height": 1226,
     "orientation": "landscape",
-    "question": "שאלה 16",
+    "question": "באיזה גיל נוי התחילה ללכת?",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "11 חודשים",
+      "שנה וחצי",
+      "שנה בדיוק"
     ],
     "rightAnswer": "answer a"
   },
@@ -279,11 +279,11 @@ window.NOY_GAME_CARDS = [
     "width": 1148,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 17",
+    "question": "הסקווישי הכי גדול של נוי",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "כריש",
+      "תמנון",
+      "אוטובוס"
     ],
     "rightAnswer": "answer a"
   },
@@ -295,11 +295,11 @@ window.NOY_GAME_CARDS = [
     "width": 1118,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 18",
+    "question": "איפה נוי הצטלמה לכבוד בת המצווה?",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "בים",
+      "בבריכה",
+      "במוזיאון"
     ],
     "rightAnswer": "answer a"
   },
@@ -311,11 +311,11 @@ window.NOY_GAME_CARDS = [
     "width": 1700,
     "height": 1206,
     "orientation": "landscape",
-    "question": "שאלה 19",
+    "question": "הכינוי של נוי בקפוארה",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "פוקהונטס",
+      "סינדרלה",
+      "מואנה"
     ],
     "rightAnswer": "answer a"
   },
@@ -327,11 +327,11 @@ window.NOY_GAME_CARDS = [
     "width": 1184,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 20",
+    "question": "ממה עשויה יצירת אמנות עם הפנים של נוי בחדר שלה",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "מחוט שחור",
+      "מסמרים",
+      "צדפים"
     ],
     "rightAnswer": "answer a"
   },
@@ -343,11 +343,11 @@ window.NOY_GAME_CARDS = [
     "width": 1196,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 21",
+    "question": "בכמה מדינות נוי ביקרה?",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "14",
+      "6",
+      "9"
     ],
     "rightAnswer": "answer a"
   },
@@ -359,11 +359,11 @@ window.NOY_GAME_CARDS = [
     "width": 1206,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 22",
+    "question": "",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "",
+      "",
+      ""
     ],
     "rightAnswer": "answer a"
   },
@@ -375,11 +375,11 @@ window.NOY_GAME_CARDS = [
     "width": 1155,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 23",
+    "question": "שינוי משמעותי שנוי עשתה לפני כמה שנים",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "שינתה שם משפחה",
+      "הסתפרה קצוץ",
+      "צבעה את השיער לסגול"
     ],
     "rightAnswer": "answer a"
   },
@@ -391,11 +391,11 @@ window.NOY_GAME_CARDS = [
     "width": 1351,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 24",
+    "question": "תוספת הפיצה האהובה על נוי",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "תירס",
+      "בצל",
+      "פטריות"
     ],
     "rightAnswer": "answer a"
   },
@@ -407,11 +407,11 @@ window.NOY_GAME_CARDS = [
     "width": 1211,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 25",
+    "question": "קייטנה שנוי הלכה כמה פעמים",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "ריקוד",
+      "הישרדות",
+      "פיסול"
     ],
     "rightAnswer": "answer a"
   },
@@ -423,11 +423,11 @@ window.NOY_GAME_CARDS = [
     "width": 1198,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 26",
+    "question": "",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "",
+      "",
+      ""
     ],
     "rightAnswer": "answer a"
   },
@@ -439,11 +439,11 @@ window.NOY_GAME_CARDS = [
     "width": 1163,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 27",
+    "question": "מה המשמעות של השם נוי?",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "יופי",
+      "אור",
+      "תקווה"
     ],
     "rightAnswer": "answer a"
   },
@@ -455,11 +455,11 @@ window.NOY_GAME_CARDS = [
     "width": 1194,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 28",
+    "question": "מה נוי מבקשת מאמא כל לילה לפני שינה",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "צמת לילה",
+      "שתכבה לה את האור בחדר",
+      "נשיקת לילה טוב"
     ],
     "rightAnswer": "answer a"
   },
@@ -471,11 +471,11 @@ window.NOY_GAME_CARDS = [
     "width": 1217,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 29",
+    "question": "כמה חלונות יש בחדר של נוי?",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "2",
+      "1",
+      "3"
     ],
     "rightAnswer": "answer a"
   },
@@ -487,11 +487,11 @@ window.NOY_GAME_CARDS = [
     "width": 1700,
     "height": 1686,
     "orientation": "landscape",
-    "question": "שאלה 30",
+    "question": "באיזה טורניר נוי השתתפה וזכתה מקום ראשון עם הקבוצה השנה?",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "כדורסל",
+      "כדור עף",
+      "כדורגל"
     ],
     "rightAnswer": "answer a"
   },
@@ -503,11 +503,11 @@ window.NOY_GAME_CARDS = [
     "width": 1205,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 31",
+    "question": "באיזה יום בשבוע לנוי לא היה חוג השנה?",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "שבת",
+      "ראשון",
+      "שישי"
     ],
     "rightAnswer": "answer a"
   },
@@ -519,11 +519,11 @@ window.NOY_GAME_CARDS = [
     "width": 1119,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 32",
+    "question": "מה הבגד הכי מרופט שנוי לא מוותרת עליו?",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "סווטצ'רט יוניקלו ורוד",
+      "חולצה קבועה לימי מבחנים",
+      "פיג'מה של סטיץ"
     ],
     "rightAnswer": "answer a"
   },
@@ -535,11 +535,11 @@ window.NOY_GAME_CARDS = [
     "width": 1129,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 33",
+    "question": "לאיזו מגמה נוי הולכת בכיתה ז'",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "אומנות",
+      "מחול",
+      "מדעית"
     ],
     "rightAnswer": "answer a"
   },
@@ -551,11 +551,11 @@ window.NOY_GAME_CARDS = [
     "width": 1183,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 34",
+    "question": "המדינה הכי רחוקה שנוי ביקרה בה",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "פיג׳י",
+      "סינגפור",
+      "יפן"
     ],
     "rightAnswer": "answer a"
   },
@@ -567,11 +567,11 @@ window.NOY_GAME_CARDS = [
     "width": 1700,
     "height": 1304,
     "orientation": "landscape",
-    "question": "שאלה 35",
+    "question": "איזה מתקן היא תעדיף בלונה פארק?",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "רכבת הרים",
+      "קליעה למטרה",
+      "גלגל ענק"
     ],
     "rightAnswer": "answer a"
   },
@@ -583,11 +583,11 @@ window.NOY_GAME_CARDS = [
     "width": 1208,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 36",
+    "question": "מי במשפחה הכי מצליח להביא את נוי למצב כפית של צחוק ללא הפסקה?",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "יהב",
+      "זיו",
+      "אמא"
     ],
     "rightAnswer": "answer a"
   },
@@ -599,11 +599,11 @@ window.NOY_GAME_CARDS = [
     "width": 1218,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 37",
+    "question": "",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "",
+      "",
+      ""
     ],
     "rightAnswer": "answer a"
   },
@@ -615,11 +615,11 @@ window.NOY_GAME_CARDS = [
     "width": 1159,
     "height": 1700,
     "orientation": "portrait",
-    "question": "שאלה 38",
+    "question": "מי במשפחה הכי עושה לה בושות?",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "אבא",
+      "אמא",
+      "יהב"
     ],
     "rightAnswer": "answer a"
   },
@@ -631,11 +631,11 @@ window.NOY_GAME_CARDS = [
     "width": 3024,
     "height": 4032,
     "orientation": "portrait",
-    "question": "שאלה 39",
+    "question": "מי העביר קייטנוי?",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "תהל",
+      "אורין",
+      "דודה טליה"
     ],
     "rightAnswer": "answer a"
   },
@@ -647,11 +647,11 @@ window.NOY_GAME_CARDS = [
     "width": 1700,
     "height": 1224,
     "orientation": "landscape",
-    "question": "שאלה 40",
+    "question": "איזו גבינה נוי הכי אוהבת?",
     "answers": [
-      "תשובה א",
-      "תשובה ב",
-      "תשובה ג"
+      "שמנת",
+      "בולגרית",
+      "קוטג'"
     ],
     "rightAnswer": "answer a"
   }

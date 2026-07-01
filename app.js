@@ -33,6 +33,7 @@ let controlsExpanded = false;
 let spotlitId = null;
 let flyingRevealId = null;
 let selectionSkipRequested = false;
+let revealHoldResolver = null;
 let confettiParticles = [];
 let animationFrame = null;
 const answerOrderByCard = new Map();
@@ -60,6 +61,32 @@ function escapeHtml(value) {
 
 function sleep(ms) {
   return new Promise((resolve) => window.setTimeout(resolve, ms));
+}
+
+function waitForRevealHold(ms) {
+  return new Promise((resolve) => {
+    let timer = null;
+    let settled = false;
+
+    const done = () => {
+      if (settled) return;
+      settled = true;
+      if (timer !== null) window.clearTimeout(timer);
+      if (revealHoldResolver === done) revealHoldResolver = null;
+      resolve();
+    };
+
+    timer = window.setTimeout(done, ms);
+    revealHoldResolver = done;
+  });
+}
+
+function skipRevealHold() {
+  if (revealHoldResolver) revealHoldResolver();
+}
+
+function hasQuestion(card) {
+  return Boolean(String(card?.question || "").trim());
 }
 
 function parseCsvRows(text) {
@@ -121,11 +148,13 @@ function applyQuestionOverrides(csvText) {
   cards.forEach((card) => {
     const record = questionsByGuest.get(card.guest);
     if (!record) return;
-    card.question = record.question?.trim() || card.question;
+    if (Object.hasOwn(record, "question")) {
+      card.question = record.question.trim();
+    }
     card.answers = [
-      record["answer a"]?.trim() || card.answers[0] || "",
-      record["answer b"]?.trim() || card.answers[1] || "",
-      record["answer c"]?.trim() || card.answers[2] || "",
+      Object.hasOwn(record, "answer a") ? record["answer a"].trim() : card.answers[0] || "",
+      Object.hasOwn(record, "answer b") ? record["answer b"].trim() : card.answers[1] || "",
+      Object.hasOwn(record, "answer c") ? record["answer c"].trim() : card.answers[2] || "",
     ];
     card.rightAnswer = "answer a";
     answerOrderByCard.delete(card.id);
@@ -230,7 +259,7 @@ function renderGallery() {
       button.setAttribute("aria-label", isRevealed ? `הציור של ${card.guest}` : `כרטיס מוסתר ${card.id}`);
       button.innerHTML = `
         <span class="card-inner">
-          <span class="card-face card-back"><span class="brand-mark" dir="rtl"><bdi>נוי</bdi></span></span>
+          <span class="card-face card-back"><span class="brand-mark" dir="rtl"><bdi>${escapeHtml(card.guest)}</bdi></span></span>
           <span class="card-face card-front">
             <img src="${escapeHtml(card.art)}" alt="הציור של ${escapeHtml(card.guest)}" loading="eager" />
             <span class="guest-ribbon">${escapeHtml(card.guest)}</span>
@@ -274,6 +303,11 @@ function renderPanel() {
 
   const card = selectedIndex === null ? null : cards[selectedIndex];
   if (!card) {
+    setOverlay("", false);
+    return;
+  }
+
+  if (!hasQuestion(card)) {
     setOverlay("", false);
     return;
   }
@@ -359,6 +393,18 @@ function selectCardByIndex(index) {
   justRevealedId = null;
   setStage("question");
   render();
+  revealQuestionlessCard(index);
+}
+
+function revealQuestionlessCard(index) {
+  const card = cards[index];
+  if (!card || hasQuestion(card)) return;
+  answerIsVisible = true;
+  window.setTimeout(() => {
+    if (selectedIndex === index && !revealed.has(card.id) && !isRevealAnimating) {
+      revealDrawing();
+    }
+  }, 120);
 }
 
 function randomHiddenIndex() {
@@ -415,6 +461,7 @@ async function revealNextCard() {
   selectedIndex = finalIndex;
   setStage("question");
   render();
+  revealQuestionlessCard(finalIndex);
 }
 
 async function showCorrectAnswer() {
@@ -489,7 +536,7 @@ async function animateDrawingReveal(card, sourceRect) {
   showcase.style.height = `${sourceRect.height}px`;
   showcase.innerHTML = `
     <span class="reveal-card-inner">
-      <span class="card-face card-back"><span class="brand-mark" dir="rtl"><bdi>נוי</bdi></span></span>
+      <span class="card-face card-back"><span class="brand-mark" dir="rtl"><bdi>${escapeHtml(card.guest)}</bdi></span></span>
       <span class="card-face card-front">
         <img src="${escapeHtml(card.art)}" alt="הציור של ${escapeHtml(card.guest)}" />
         <span class="guest-ribbon is-always-visible">${escapeHtml(card.guest)}</span>
@@ -510,7 +557,7 @@ async function animateDrawingReveal(card, sourceRect) {
   await sleep(120);
   inner.classList.add("is-flipped");
   burstConfetti(55, ["#f7c948", "#40d3e8", "#ffffff"]);
-  await sleep(1250);
+  await waitForRevealHold(7000);
 
   await showcase.animate(
     [
@@ -561,7 +608,11 @@ function progressWithSpace() {
     selectionSkipRequested = true;
     return;
   }
-  if (isCheckingAnswer || isRevealAnimating) return;
+  if (isRevealAnimating) {
+    skipRevealHold();
+    return;
+  }
+  if (isCheckingAnswer) return;
 
   if (stage === "idle" || selectedIndex === null || stage === "revealed") {
     if (!nextBtn.disabled) revealNextCard();
