@@ -212,7 +212,8 @@ h1 {
 }
 
 .memory-card.is-portrait .brand-mark {
-  width: min(72%, 74px);
+  width: min(82%, 104px);
+  width: min(86cqw, 86cqh, 104px);
 }
 
 .memory-card.is-revealed .card-inner {
@@ -257,7 +258,8 @@ h1 {
 }
 
 .card-back {
-  padding: 9%;
+  container-type: size;
+  padding: 6%;
   border: 1px solid rgba(255, 255, 255, 0.24);
   background:
     linear-gradient(145deg, rgba(64, 211, 232, 0.32), rgba(247, 201, 72, 0.12)),
@@ -270,8 +272,10 @@ h1 {
 .brand-mark {
   display: grid;
   place-items: center;
-  width: min(72%, 92px);
+  width: min(82%, 112px);
+  width: min(86cqw, 86cqh, 116px);
   aspect-ratio: 1;
+  padding: 8%;
   border: 2px solid rgba(255, 255, 255, 0.42);
   border-radius: 999px;
   color: #fff;
@@ -286,8 +290,10 @@ h1 {
 
 .brand-mark bdi {
   display: block;
+  max-width: 86%;
   direction: rtl;
   unicode-bidi: isolate;
+  overflow-wrap: anywhere;
   transform: translateY(-0.02em);
 }
 
@@ -376,7 +382,8 @@ h1 {
 }
 
 .reveal-showcase .brand-mark {
-  width: min(72%, 170px);
+  width: min(78%, 210px);
+  width: min(82cqw, 82cqh, 210px);
   font-size: clamp(44px, 5.2vw, 86px);
 }
 

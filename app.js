@@ -34,6 +34,7 @@ let spotlitId = null;
 let flyingRevealId = null;
 let selectionSkipRequested = false;
 let revealHoldResolver = null;
+let resetGeneration = 0;
 let confettiParticles = [];
 let animationFrame = null;
 const answerOrderByCard = new Map();
@@ -83,6 +84,39 @@ function waitForRevealHold(ms) {
 
 function skipRevealHold() {
   if (revealHoldResolver) revealHoldResolver();
+}
+
+function fitBrandMarks(root = document) {
+  root.querySelectorAll(".brand-mark").forEach((mark) => {
+    const label = mark.querySelector("bdi");
+    if (!label) return;
+
+    label.style.fontSize = "";
+    label.style.lineHeight = "";
+
+    const computed = window.getComputedStyle(mark);
+    let size = Number.parseFloat(computed.fontSize);
+    const isShowcase = Boolean(mark.closest(".reveal-showcase"));
+    const minSize = isShowcase ? 24 : 9;
+    const maxWidth = mark.clientWidth * 0.78;
+    const maxHeight = mark.clientHeight * 0.74;
+
+    label.style.fontSize = `${size}px`;
+    label.style.lineHeight = "0.9";
+
+    for (let attempt = 0; attempt < 14; attempt += 1) {
+      const fitsWidth = label.scrollWidth <= maxWidth;
+      const fitsHeight = label.scrollHeight <= maxHeight;
+      if (fitsWidth && fitsHeight) return;
+
+      const widthRatio = maxWidth / Math.max(label.scrollWidth, 1);
+      const heightRatio = maxHeight / Math.max(label.scrollHeight, 1);
+      const nextSize = Math.max(minSize, Math.floor(size * Math.min(widthRatio, heightRatio, 0.92)));
+      if (nextSize >= size || size <= minSize) return;
+      size = nextSize;
+      label.style.fontSize = `${size}px`;
+    }
+  });
 }
 
 function hasQuestion(card) {
@@ -272,6 +306,7 @@ function renderGallery() {
       return button;
     }),
   );
+  window.requestAnimationFrame(() => fitBrandMarks(gallery));
 }
 
 function renderProgress() {
@@ -483,6 +518,7 @@ async function revealDrawing() {
   if (selectedIndex === null) return;
   const card = cards[selectedIndex];
   if (revealed.has(card.id) || isRevealAnimating) return;
+  const revealGeneration = resetGeneration;
 
   const sourceCard = gallery.querySelector(`[data-card-id="${card.id}"]`);
   if (!sourceCard) return;
@@ -494,7 +530,23 @@ async function revealDrawing() {
   renderGallery();
   renderButtons();
 
-  await animateDrawingReveal(card, sourceRect);
+  let revealCompleted = false;
+  try {
+    await animateDrawingReveal(card, sourceRect);
+    revealCompleted = true;
+  } catch (error) {
+    if (revealGeneration === resetGeneration) {
+      console.error("Reveal animation failed.", error);
+    }
+  }
+
+  if (revealGeneration !== resetGeneration) return;
+  if (!revealCompleted) {
+    flyingRevealId = null;
+    isRevealAnimating = false;
+    render();
+    return;
+  }
 
   revealed.add(card.id);
   saveRevealed();
@@ -544,6 +596,7 @@ async function animateDrawingReveal(card, sourceRect) {
     </span>
   `;
   document.body.append(showcase);
+  fitBrandMarks(showcase);
 
   const inner = showcase.querySelector(".reveal-card-inner");
   await showcase.animate(
@@ -586,8 +639,9 @@ function startFinale() {
 }
 
 async function resetGame() {
-  if (!window.confirm("לאפס את כל הכרטיסים שנחשפו?")) return;
-  await loadQuestionOverrides();
+  resetGeneration += 1;
+  skipRevealHold();
+  document.querySelectorAll(".reveal-showcase").forEach((showcase) => showcase.remove());
   answerOrderByCard.clear();
   revealed = new Set();
   selectedIndex = null;
@@ -596,10 +650,15 @@ async function resetGame() {
   answerIsVisible = false;
   isCheckingAnswer = false;
   isRevealAnimating = false;
+  selectionSkipRequested = false;
+  spotlitId = null;
   flyingRevealId = null;
   justRevealedId = null;
   localStorage.removeItem(STORAGE_KEY);
   setStage("idle");
+  render();
+  await loadQuestionOverrides();
+  answerOrderByCard.clear();
   render();
 }
 
