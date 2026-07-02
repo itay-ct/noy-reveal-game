@@ -86,6 +86,63 @@ function skipRevealHold() {
   if (revealHoldResolver) revealHoldResolver();
 }
 
+function fitGalleryCards() {
+  if (!cards.length) return;
+
+  const styles = window.getComputedStyle(gallery);
+  const paddingX = Number.parseFloat(styles.paddingLeft) + Number.parseFloat(styles.paddingRight);
+  const paddingY = Number.parseFloat(styles.paddingTop) + Number.parseFloat(styles.paddingBottom);
+  const gap = Number.parseFloat(styles.columnGap) || Number.parseFloat(styles.gap) || 0;
+  const availableWidth = gallery.clientWidth - paddingX;
+  const availableHeight = gallery.clientHeight - paddingY;
+  if (availableWidth <= 0 || availableHeight <= 0) return;
+
+  const aspects = cards.map((card) => {
+    if (card.width && card.height) return card.width / card.height;
+    return card.orientation === "portrait" ? 0.72 : 1.36;
+  });
+
+  const totalHeightForCardHeight = (cardHeight) => {
+    let rows = 1;
+    let rowWidth = 0;
+
+    aspects.forEach((aspect) => {
+      const cardWidth = cardHeight * aspect;
+      const nextWidth = rowWidth ? rowWidth + gap + cardWidth : cardWidth;
+      if (rowWidth && nextWidth > availableWidth) {
+        rows += 1;
+        rowWidth = cardWidth;
+      } else {
+        rowWidth = nextWidth;
+      }
+    });
+
+    return rows * cardHeight + Math.max(0, rows - 1) * gap;
+  };
+
+  let low = 72;
+  let high = Math.min(300, availableHeight);
+  for (let step = 0; step < 18; step += 1) {
+    const middle = (low + high) / 2;
+    if (totalHeightForCardHeight(middle) <= availableHeight) {
+      low = middle;
+    } else {
+      high = middle;
+    }
+  }
+
+  gallery.style.setProperty("--card-h", `${Math.floor(low)}px`);
+}
+
+function fitBoard() {
+  fitGalleryCards();
+  fitBrandMarks(gallery);
+}
+
+function scheduleBoardFit() {
+  window.requestAnimationFrame(fitBoard);
+}
+
 function fitBrandMarks(root = document) {
   root.querySelectorAll(".brand-mark").forEach((mark) => {
     const label = mark.querySelector("bdi");
@@ -306,7 +363,7 @@ function renderGallery() {
       return button;
     }),
   );
-  window.requestAnimationFrame(() => fitBrandMarks(gallery));
+  scheduleBoardFit();
 }
 
 function renderProgress() {
@@ -416,6 +473,7 @@ function renderButtons() {
   drawingBtn.disabled = selectedIndex === null || stage === "selecting" || isRevealAnimating || !answerIsVisible || revealed.has(cards[selectedIndex]?.id);
   finaleBtn.disabled = stage === "selecting" || isRevealAnimating;
   operatorBar.classList.toggle("is-expanded", controlsExpanded);
+  scheduleBoardFit();
 }
 
 function selectCardByIndex(index) {
@@ -778,7 +836,10 @@ fullscreenBtn.addEventListener("click", () => {
   }
 });
 
-window.addEventListener("resize", resizeConfetti);
+window.addEventListener("resize", () => {
+  resizeConfetti();
+  fitBoard();
+});
 window.addEventListener("keydown", (event) => {
   if (event.key === " ") {
     event.preventDefault();

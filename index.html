@@ -10,7 +10,7 @@
     <canvas id="confetti" aria-hidden="true"></canvas>
     <main class="app" id="app">
       <header class="topbar">
-        <div>
+        <div class="brand-lockup">
           <h1>נוי בת מצווה</h1>
         </div>
         <div class="progress-wrap" aria-live="polite">
@@ -19,6 +19,14 @@
             <div id="progressFill" class="progress-fill"></div>
           </div>
         </div>
+        <nav class="operator-bar" aria-label="כפתורי הפעלה">
+          <button id="nextBtn" class="primary">חשיפת הכרטיס הבא</button>
+          <button id="answerBtn">הצגת התשובה</button>
+          <button id="drawingBtn">חשיפת הציור</button>
+          <button id="finaleBtn">פינאלה</button>
+          <button id="fullscreenBtn" class="quiet">מסך מלא</button>
+          <button id="resetBtn" class="quiet danger">איפוס</button>
+        </nav>
       </header>
 
       <section class="workspace">
@@ -27,15 +35,6 @@
           <section class="stage-overlay" id="stageOverlay" aria-live="polite"></section>
         </section>
       </section>
-
-      <nav class="operator-bar" aria-label="כפתורי הפעלה">
-        <button id="nextBtn" class="primary">חשיפת הכרטיס הבא</button>
-        <button id="answerBtn">הצגת התשובה</button>
-        <button id="drawingBtn">חשיפת הציור</button>
-        <button id="finaleBtn">פינאלה</button>
-        <button id="fullscreenBtn" class="quiet">מסך מלא</button>
-        <button id="resetBtn" class="quiet danger">איפוס</button>
-      </nav>
     </main>
 
     <script src="data.js"></script>
