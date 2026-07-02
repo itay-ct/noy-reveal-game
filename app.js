@@ -143,6 +143,21 @@ function scheduleBoardFit() {
   window.requestAnimationFrame(fitBoard);
 }
 
+function brandNameHtml(guest) {
+  const parts = String(guest).trim().split(/\s+/);
+  const shouldStack = /^(סבא|סבתא)$/.test(parts[0]) && parts.length > 1;
+  if (!shouldStack) return `<bdi>${escapeHtml(guest)}</bdi>`;
+
+  const prefix = escapeHtml(parts[0]);
+  const name = escapeHtml(parts.slice(1).join(" "));
+  return `
+    <bdi class="is-stacked-name">
+      <span class="brand-name-line">${prefix}</span>
+      <span class="brand-name-line">${name}</span>
+    </bdi>
+  `;
+}
+
 function fitBrandMarks(root = document) {
   root.querySelectorAll(".brand-mark").forEach((mark) => {
     const label = mark.querySelector("bdi");
@@ -155,11 +170,11 @@ function fitBrandMarks(root = document) {
     let size = Number.parseFloat(computed.fontSize);
     const isShowcase = Boolean(mark.closest(".reveal-showcase"));
     const minSize = isShowcase ? 24 : 9;
-    const maxWidth = mark.clientWidth * 0.78;
-    const maxHeight = mark.clientHeight * 0.74;
 
     label.style.fontSize = `${size}px`;
-    label.style.lineHeight = "0.9";
+    label.style.lineHeight = label.classList.contains("is-stacked-name") ? "0.82" : "0.9";
+    const maxWidth = label.clientWidth;
+    const maxHeight = label.clientHeight;
 
     for (let attempt = 0; attempt < 14; attempt += 1) {
       const fitsWidth = label.scrollWidth <= maxWidth;
@@ -350,7 +365,7 @@ function renderGallery() {
       button.setAttribute("aria-label", isRevealed ? `הציור של ${card.guest}` : `כרטיס מוסתר ${card.id}`);
       button.innerHTML = `
         <span class="card-inner">
-          <span class="card-face card-back"><span class="brand-mark" dir="rtl"><bdi>${escapeHtml(card.guest)}</bdi></span></span>
+          <span class="card-face card-back"><span class="brand-mark" dir="rtl">${brandNameHtml(card.guest)}</span></span>
           <span class="card-face card-front">
             <img src="${escapeHtml(card.art)}" alt="הציור של ${escapeHtml(card.guest)}" loading="eager" />
             <span class="guest-ribbon">${escapeHtml(card.guest)}</span>
@@ -358,7 +373,10 @@ function renderGallery() {
         </span>
       `;
       if (!isRevealed) {
-        button.addEventListener("click", () => selectCardByIndex(index));
+        button.addEventListener("click", (event) => {
+          event.stopPropagation();
+          selectCardByIndex(index);
+        });
       }
       return button;
     }),
@@ -646,7 +664,7 @@ async function animateDrawingReveal(card, sourceRect) {
   showcase.style.height = `${sourceRect.height}px`;
   showcase.innerHTML = `
     <span class="reveal-card-inner">
-      <span class="card-face card-back"><span class="brand-mark" dir="rtl"><bdi>${escapeHtml(card.guest)}</bdi></span></span>
+      <span class="card-face card-back"><span class="brand-mark" dir="rtl">${brandNameHtml(card.guest)}</span></span>
       <span class="card-face card-front">
         <img src="${escapeHtml(card.art)}" alt="הציור של ${escapeHtml(card.guest)}" />
         <span class="guest-ribbon is-always-visible">${escapeHtml(card.guest)}</span>
