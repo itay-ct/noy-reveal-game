@@ -546,6 +546,23 @@ async function revealNextCard() {
     return;
   }
 
+  const hiddenIndexes = cards
+    .map((card, index) => (!revealed.has(card.id) ? index : null))
+    .filter((index) => index !== null);
+
+  if (hiddenIndexes.length <= 1) {
+    highlightedIndex = null;
+    selectedIndex = finalIndex;
+    pickedAnswerIndex = null;
+    answerIsVisible = false;
+    isCheckingAnswer = false;
+    justRevealedId = null;
+    setStage("question");
+    render();
+    revealQuestionlessCard(finalIndex);
+    return;
+  }
+
   setStage("selecting");
   selectionSkipRequested = false;
   selectedIndex = null;
@@ -555,9 +572,6 @@ async function revealNextCard() {
   justRevealedId = null;
   render();
 
-  const hiddenIndexes = cards
-    .map((card, index) => (!revealed.has(card.id) ? index : null))
-    .filter((index) => index !== null);
   const revealNumber = revealed.size + 1;
   const speedFactor = revealNumber <= 3 ? 1 : Math.max(0.35, 0.95 ** (revealNumber - 3));
 
