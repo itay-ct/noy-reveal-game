@@ -75,28 +75,38 @@ button {
 .topbar {
   display: grid;
   grid-template-columns: minmax(150px, 1fr) minmax(230px, 390px) minmax(170px, 1fr);
+  grid-template-areas: "progress action title";
   align-items: center;
   gap: clamp(8px, 1vw, 16px);
   min-height: clamp(42px, 5.2svh, 58px);
   padding-bottom: clamp(4px, 0.45vw, 8px);
   border-bottom: 1px solid var(--line);
+  direction: ltr;
+}
+
+.topbar.has-debug-controls {
+  grid-template-areas:
+    "progress action title"
+    "debug debug debug";
 }
 
 .brand-lockup {
-  grid-column: 3;
+  grid-area: title;
   justify-self: end;
+  min-width: max-content;
+  direction: rtl;
 }
 
 h1 {
   margin: 0;
-  font-size: clamp(24px, 3vw, 48px);
+  font-size: clamp(20px, 2.15vw, 36px);
   line-height: 0.9;
   letter-spacing: 0;
   white-space: nowrap;
 }
 
 .progress-wrap {
-  grid-column: 1;
+  grid-area: progress;
   justify-self: start;
   min-width: 0;
   text-align: left;
@@ -600,26 +610,29 @@ h1 {
 }
 
 .operator-bar {
-  grid-column: 2;
+  grid-area: debug;
+  display: none;
+  width: min(100%, 880px);
+  justify-self: center;
+  direction: rtl;
+}
+
+.operator-bar.is-expanded {
   display: grid;
-  grid-template-columns: minmax(220px, 390px);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   align-items: center;
   justify-content: stretch;
   gap: 6px;
 }
 
-.operator-bar.is-expanded {
-  grid-column: 1 / -1;
-  grid-row: 2;
-  grid-template-columns: 1.45fr 1fr 1fr 0.8fr 0.8fr 0.65fr;
-  justify-content: stretch;
+.top-action {
+  grid-area: action;
+  justify-self: stretch;
+  direction: rtl;
 }
 
-.operator-bar:not(.is-expanded) button:not(#nextBtn) {
-  display: none;
-}
-
-.operator-bar button {
+.operator-bar button,
+.top-action {
   min-width: 0;
   height: clamp(34px, 4.1svh, 46px);
   border: 1px solid rgba(255, 255, 255, 0.22);
@@ -636,18 +649,20 @@ h1 {
     opacity 180ms ease;
 }
 
-.operator-bar button:hover:not(:disabled) {
+.operator-bar button:hover:not(:disabled),
+.top-action:hover:not(:disabled) {
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.5);
   background: rgba(255, 255, 255, 0.18);
 }
 
-.operator-bar button:disabled {
+.operator-bar button:disabled,
+.top-action:disabled {
   cursor: not-allowed;
   opacity: 0.38;
 }
 
-.operator-bar .primary {
+.top-action.primary {
   color: #08111f;
   border-color: transparent;
   background: linear-gradient(90deg, var(--gold), #ffe58a);
@@ -815,6 +830,6 @@ h1 {
   }
 
   .operator-bar.is-expanded {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }

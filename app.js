@@ -16,6 +16,7 @@ const finaleBtn = document.getElementById("finaleBtn");
 const fullscreenBtn = document.getElementById("fullscreenBtn");
 const resetBtn = document.getElementById("resetBtn");
 const operatorBar = document.querySelector(".operator-bar");
+const topbar = document.querySelector(".topbar");
 const app = document.getElementById("app");
 const confettiCanvas = document.getElementById("confetti");
 const confettiContext = confettiCanvas.getContext("2d");
@@ -491,6 +492,7 @@ function renderButtons() {
   drawingBtn.disabled = selectedIndex === null || stage === "selecting" || isRevealAnimating || !answerIsVisible || revealed.has(cards[selectedIndex]?.id);
   finaleBtn.disabled = stage === "selecting" || isRevealAnimating;
   operatorBar.classList.toggle("is-expanded", controlsExpanded);
+  topbar.classList.toggle("has-debug-controls", controlsExpanded);
   scheduleBoardFit();
 }
 
